@@ -25,14 +25,14 @@ The `main` branch will remain a **stable base** — always showing the simple py
 
 ## Building
 
-###Prerequisites
+### Prerequisites
 1. C++ compiler (like MSVC on Windows, or g++/clang on Linux/macOS)
 2. CMake (for generating build files)
 3. VSCode (recommended)
-   3. C++ extension (ms-vscode.cpptools)
-   3. CMake Tools extension (ms-vscode.cmake-tools)
+   1. C++ extension (ms-vscode.cpptools)
+   2. CMake Tools extension (ms-vscode.cmake-tools)
 
-###How-To
+### How-To
 1. Clone the repository:  
    git clone <repo-url>
 2. Open the folder using VSCode
