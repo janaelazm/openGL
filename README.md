@@ -16,9 +16,8 @@ This repository is a personal space to track my progress learning **OpenGL** wit
 ## Upcoming
 
 New features or experiments will live in separate branches or folders, currently in progress:
-- Specular maps
-- Normal maps
-- Advanced lighting
+- Specular and normal maps
+- FBO Buffers
 - ....
 
 The `main` branch will remain a **stable base** — always showing the simple pyramid with texture and lighting.
@@ -31,6 +30,12 @@ The `main` branch will remain a **stable base** — always showing the simple py
 3. VSCode (recommended)
    1. C++ extension (ms-vscode.cpptools)
    2. CMake Tools extension (ms-vscode.cmake-tools)
+
+### Dependencies
+- **GLFW** – window creation, input handling, OpenGL context
+- **GLAD** – OpenGL function loader
+- **GLM** – math library (vectors, matrices, transformations)
+- **stb_image** – image loading for textures
 
 ### How-To
 1. git clone <repo-url>
