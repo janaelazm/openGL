@@ -41,6 +41,12 @@ The `main` branch will remain a **stable base** — always showing the simple py
 
 These are enough to build and run the project as described. Other IDEs may work, but VSCode with these extensions is the easiest way to get started.
 
+## Camera Controls
+1. Move with W, S, D & A
+2. Use Space and Left Control to move up and down
+3. Hold Left Shift to move camera faster
+4. Use Right Mouse Click to rotate 
+
 ## Photos
 1. main
 <img width="768" height="707" alt="image" src="https://github.com/user-attachments/assets/ed6093fc-47b2-4943-9f91-a3d3d8b48985" />
