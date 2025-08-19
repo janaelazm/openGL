@@ -25,11 +25,13 @@ The `main` branch will remain a **stable base** — always showing the simple py
 ## Building
 
 ### Prerequisites
-1. C++ compiler (like MSVC on Windows, or g++/clang on Linux/macOS)
-2. CMake (for generating build files)
-3. VSCode (recommended)
+1. **C++ compiler** (like MSVC on Windows, or g++/clang on Linux/macOS)
+2. **CMake** (for generating build files)
+3. **VSCode** (recommended)
    1. C++ extension (ms-vscode.cpptools)
    2. CMake Tools extension (ms-vscode.cmake-tools)
+
+These are enough to build and run the project as described. Other IDEs may work, but VSCode with these extensions is the easiest way to get started.
 
 ### Dependencies
 - **GLFW** – window creation, input handling, OpenGL context
@@ -44,13 +46,11 @@ The `main` branch will remain a **stable base** — always showing the simple py
 5. run cmake --build build
 6. .\build\debug\openGL.exe
 
-These are enough to build and run the project as described. Other IDEs may work, but VSCode with these extensions is the easiest way to get started.
-
 ## Camera Controls
-1. Move with W, S, D & A
-2. Use Space and Left Control to move up and down
-3. Hold Left Shift to move camera faster
-4. Use Right Mouse Click to rotate 
+1. Move with **W, S, D & A**
+2. Use **Space and Left Control** to move up and down
+3. Hold **Left Shift** to move camera faster
+4. Use **Right Mouse Click** to rotate 
 
 ## Photos
 1. main
