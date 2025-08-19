@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    "egl-registry",
+    "fmt",
+    "glad",
+    "glfw3",
+    "opengl-registry",
+    "stb",
+    "vcpkg-cmake",
+    "vcpkg-cmake-config",
+    "glm"
+  ]
+}
