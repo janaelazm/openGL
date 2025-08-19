@@ -33,12 +33,11 @@ The `main` branch will remain a **stable base** — always showing the simple py
    2. CMake Tools extension (ms-vscode.cmake-tools)
 
 ### How-To
-1. Clone the repository:  
-   git clone <repo-url>
-2. Open the folder using VSCode
-3. open a terminal in VSCode
-4. run cmake --build build
-5. .\build\debug\openGL.exe
+1. git clone <repo-url>
+3. Open the folder using VSCode
+4. Open a terminal in VSCode
+5. run cmake --build build
+6. .\build\debug\openGL.exe
 
 These are enough to build and run the project as described. Other IDEs may work, but VSCode with these extensions is the easiest way to get started.
 
