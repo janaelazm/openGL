@@ -146,6 +146,7 @@ int main()
     EBO1.Unbind();
 
 
+    // Create a light shader from the source code
     Shader lightShader("Resources/Shaders/light.vert", "Resources/Shaders/light.frag");
     // Create a Vertex Array Buffer, it tells openGL how to interpet the raw data in VBO
     VAO lightVAO;
@@ -170,11 +171,15 @@ int main()
     glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
     glm::vec3 lightPos = glm::vec3(0.5f, 0.5f, 0.5f);
     glm::mat4 lightModel = glm::mat4(1.0f);
+    // Move the light to it's position
+    lightModel = glm::translate(lightModel, lightPos);
     
 
     // 3D Model
-    glm::vec3 pyramidPosition = glm::vec3(10.0f, 10.0f, 10.0f);
+    glm::vec3 pyramidPosition = glm::vec3(0.0f, 0.0f, 0.0f);
     glm::mat4 pyramidModel = glm::mat4(1.0f);
+    // Move the pyramid to it's position
+    pyramidModel = glm::translate(pyramidModel, pyramidPosition);
 
     // Sets uniforms in shaders
     lightShader.Activate();
@@ -190,13 +195,12 @@ int main()
     Texture texture("Resources/Texture/brick.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
     texture.texUnit(shaderProgram, "tex0", 0);
 
-    //Camera
+    // Camera
     Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 
 
     // Main loop: runs until the user closes the window
     while (!glfwWindowShouldClose(window)) {
-
         glClearColor(0.1f, 0.2f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
@@ -219,9 +223,9 @@ int main()
         camera.Matrix(lightShader, "camMatrix");
         // Bind the VAO so openGL knows to use it
         lightVAO.Bind();
-         // primitives, nr of indices, datatype of indcies and index of indecies
+        // primitives, nr of indices, datatype of indcies and index of indecies
         glDrawElements(GL_TRIANGLES, sizeof(lightIndices)/sizeof(int), GL_UNSIGNED_INT, 0);
-
+        // Swap back and front buffers to show scene
         glfwSwapBuffers(window);
         // Poll for events (keyboard, mouse, etc.)
         glfwPollEvents();
