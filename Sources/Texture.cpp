@@ -1,6 +1,6 @@
 #include "Texture.h"
 
-Texture::Texture(const char* image, GLenum texType, GLenum slot, GLenum format, GLenum pixelType){
+Texture::Texture(const char* image, GLenum texType, GLuint slot, GLenum format, GLenum pixelType){
 
     type = texType;
 
@@ -13,10 +13,10 @@ Texture::Texture(const char* image, GLenum texType, GLenum slot, GLenum format, 
     // Create a new texture object
     glGenTextures(1, &ID);
     // activate the slot we are using GL_TEXTURE0, GL_TEXTURE1....etc
-    glActiveTexture(slot);
+    glActiveTexture(slot + GL_TEXTURE0);
+    unit = slot;
     // Tell openGL to make the texture the current one
     glBindTexture(texType, ID);
-
     // Tell OpenGL how to sample the texture when scaling
     // MIN: when the texture is displayed smaller (minification)
     // MAG: when the texture is displayed larger (magnification)
@@ -54,6 +54,7 @@ void Texture::texUnit(Shader& shader, const char* uniform, GLuint unit){
 }
 
 void Texture::Bind(){
+    glActiveTexture(GL_TEXTURE0 + unit);
     glBindTexture(type, ID);
 }
 

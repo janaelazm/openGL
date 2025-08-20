@@ -10,8 +10,10 @@ class Texture{
     public:
     GLuint ID;
     GLenum type;
-    //e.g image.png, GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE
-    Texture(const char* image, GLenum texType, GLenum slot, GLenum format, GLenum pixelType);
+    GLuint unit;
+
+    //e.g image.png, GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE
+    Texture(const char* image, GLenum texType, GLuint slot, GLenum format, GLenum pixelType);
 
    // Associates a sampler uniform in the fragment shader with a specific texture unit.
    // Example: texUnit(shader, "tex0", 0) makes sampler2D tex0 use GL_TEXTURE0.

@@ -192,7 +192,7 @@ int main()
 
 
     // Texture
-    Texture texture("Resources/Texture/brick.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    Texture texture("Resources/Texture/brick.png", GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE);
     texture.texUnit(shaderProgram, "tex0", 0);
 
     // Camera
