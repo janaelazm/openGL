@@ -20,29 +20,11 @@ const unsigned int height = 800;
 GLfloat vertices[] =
 {
     // COORDINATES        // COLORS             // TexCoord  // NORMALS          // SIDE
-    -0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,  0.0f, 0.0f,  0.0f, -1.0f,  0.0f, // Bottom side
-    -0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f,  0.0f, 5.0f,  0.0f, -1.0f,  0.0f, // Bottom side
-     0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f,  5.0f, 5.0f,  0.0f, -1.0f,  0.0f, // Bottom side
-     0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,  5.0f, 0.0f,  0.0f, -1.0f,  0.0f, // Bottom side
-
-    -0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f,  0.0f, 0.0f, -0.8f,  0.5f,  0.0f, // Left side
-    -0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,  5.0f, 0.0f, -0.8f,  0.5f,  0.0f, // Left side
-     0.0f, 0.8f,  0.0f,   0.92f, 0.86f, 0.76f,  2.5f, 5.0f, -0.8f,  0.5f,  0.0f, // Left side
-
-    -0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,  5.0f, 0.0f,  0.0f,  0.5f, -0.8f, // Non-facing side
-     0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,  0.0f, 0.0f,  0.0f,  0.5f, -0.8f, // Non-facing side
-     0.0f, 0.8f,  0.0f,   0.92f, 0.86f, 0.76f,  2.5f, 5.0f,  0.0f,  0.5f, -0.8f, // Non-facing side
-
-     0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,  0.0f, 0.0f,  0.8f,  0.5f,  0.0f, // Right side
-     0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f,  5.0f, 0.0f,  0.8f,  0.5f,  0.0f, // Right side
-     0.0f, 0.8f,  0.0f,   0.92f, 0.86f, 0.76f,  2.5f, 5.0f,  0.8f,  0.5f,  0.0f, // Right side
-
-     0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f,  5.0f, 0.0f,  0.0f,  0.5f,  0.8f, // Facing side
-    -0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f,  0.0f, 0.0f,  0.0f,  0.5f,  0.8f, // Facing side
-     0.0f, 0.8f,  0.0f,   0.92f, 0.86f, 0.76f,  2.5f, 5.0f,  0.0f,  0.5f,  0.8f, // Facing side
-
+    -0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,  0.0f, 0.0f,  0.0f, 1.0f,  0.0f, // Bottom side
+    -0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f,  0.0f, 5.0f,  0.0f, 1.0f,  0.0f, // Bottom side
+     0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f,  5.0f, 5.0f,  0.0f, 1.0f,  0.0f, // Bottom side
+     0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,  5.0f, 0.0f,  0.0f, 1.0f,  0.0f, // Bottom side
 };
-
 
 
 // Tells opengl which order of indcies to use when drawing elements
@@ -50,13 +32,8 @@ GLfloat vertices[] =
 // Each index is 6 floats long, so add the color values doesn't affect the order
 GLuint indices[] = {
     // Base
-    0, 1, 2,
-    0, 2, 3,
-    // Faces
-    4, 6, 5,
-    7, 9, 8,
-    10, 12, 11,
-    13, 15, 14
+    0, 2, 1,
+    0, 3, 2
  };
 
 // Creates a cube that is a light source
@@ -169,7 +146,7 @@ int main()
 
     // Light settings
     glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-    glm::vec3 lightPos = glm::vec3(0.5f, 0.5f, 0.5f);
+    glm::vec3 lightPos = glm::vec3(0.0f, 0.25f, 0.0f);
     glm::mat4 lightModel = glm::mat4(1.0f);
     // Move the light to it's position
     lightModel = glm::translate(lightModel, lightPos);
@@ -195,6 +172,10 @@ int main()
     Texture texture("Resources/Texture/brick.png", GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE);
     texture.texUnit(shaderProgram, "tex0", 0);
 
+    glUniform3f(glGetUniformLocation(shaderProgram.ID, "materialDiffuse"), texture.diffuse.x, texture.diffuse.y, texture.diffuse.z);
+    glUniform3f(glGetUniformLocation(shaderProgram.ID, "materialAmbient"), texture.ambient.x, texture.ambient.y, texture.ambient.z);
+    glUniform3f(glGetUniformLocation(shaderProgram.ID, "materialSpecular"), texture.specular.x, texture.specular.y, texture.specular.z);
+
     // Camera
     Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 
@@ -214,6 +195,7 @@ int main()
         camera.Matrix(shaderProgram, "camMatrix");
         //Bind the texture so openGL knows to use it
         texture.Bind();
+      
         // Make the VAO the current one after we unbound it for saftey reasons
         VAO1.Bind();
         // primitives, nr of indices, datatype of indcies and index of indecies

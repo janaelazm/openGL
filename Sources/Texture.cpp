@@ -65,3 +65,10 @@ void Texture::Unbind(){
 void Texture::Delete(){
     glDeleteTextures(1, &ID);
 }
+
+void Texture::setMaterialLighting(glm::vec3 ambient, glm::vec3 specular, glm::vec3 diffuse, float shiniess){
+    Texture::ambient = ambient;
+    Texture::diffuse = diffuse;
+    Texture::specular = specular;
+    Texture::shininess = shiniess;
+}
