@@ -34,12 +34,12 @@ These are enough to build and run the project as described. Other IDEs may work,
 
 ## Current Progress
 1. main:
-  1. 2 Shaders, a default one and a light one
-  2. Using vertices and indices for both lighting and models
-  3. Textures
-  4. Basic lighting (hard-coded ambient, specular, and diffuse lighting)
-  5. VBO, EBO, and VAO classes
-  6. Camera class allows moving and rotating in the window 
+   1. 2 Shaders, a default one and a light one
+   2. Using vertices and indices for both lighting and models
+   3. Textures
+   4. Basic lighting (hard-coded ambient, specular, and diffuse lighting)
+   5. VBO, EBO, and VAO classes
+   6. Camera class allows moving and rotating in the window
 
 <img width="800" height="800" alt="Screenshot 2025-08-21 193307" src="https://github.com/user-attachments/assets/639c58e3-852b-4b69-9323-90c12059fa08" />
 
