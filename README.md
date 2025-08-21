@@ -34,7 +34,7 @@ These are enough to build and run the project as described. Other IDEs may work,
 
 ## Current Progress
 1. main
-1. 2 Shaders, a default one and a light one
+  1. 2 Shaders, a default one and a light one
   2. Using vertices and indices for both lighting and models
   3. Textures
   4. Basic lighting (hard-coded ambient, specular, and diffuse lighting)
