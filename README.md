@@ -33,6 +33,7 @@ These are enough to build and run the project as described. Other IDEs may work,
 4. Use **Right Mouse Click** to rotate 
 
 ## Current Progress
+The `main` branch will remain a **stable base** — always showing the simple pyramid with texture and lighting, please switch branches to see progress
 1. main:
    1. 2 Shaders, a default one and a light one
    2. Using vertices and indices for both lighting and models
@@ -42,12 +43,3 @@ These are enough to build and run the project as described. Other IDEs may work,
    6. Camera class allows moving and rotating in the window
 
 <img width="800" height="800" alt="Screenshot 2025-08-21 193307" src="https://github.com/user-attachments/assets/639c58e3-852b-4b69-9323-90c12059fa08" />
-
-## Upcoming
-
-New features or experiments will live in separate branches or folders, currently in progress:
-- Specular and normal maps
-- FBO Buffers
-- ....
-
-The `main` branch will remain a **stable base** — always showing the simple pyramid with texture and lighting.
