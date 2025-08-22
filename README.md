@@ -42,19 +42,19 @@ The `main` branch will remain a **stable base** — always showing the simple py
    5. VBO, EBO, and VAO classes
    6. Camera class allows moving and rotating in the window
 
-<img width="400" height="400" alt="Screenshot 2025-08-21 193307" src="https://github.com/user-attachments/assets/639c58e3-852b-4b69-9323-90c12059fa08" />
+<img width="400" height="400" alt="Screenshot 2025-08-21 193307" src="https://github.com/user-attachments/assets/639c58e3-852b-4b69-9323-90c12059fa08" /><br>
 
-1. **specular-maps:**
+2. **specular-maps:**
    1. Used two structs for better organization in the fragment shader
    2. Material struct contains shininess (float), diffuse and specular sampler2D (no longer vec3 or floats), and can be set from an image/texture/map
    3. Light struct contains vec3 for diffuse, specular, and ambient properties
    4. Able to set light color that tints objects
 
 - **Diffuse Map**<br>
-  <img src="https://github.com/user-attachments/assets/c1bca76b-d491-4399-adde-217e3469d6b1" width="400" height="400" />
+<img src="https://github.com/user-attachments/assets/c1bca76b-d491-4399-adde-217e3469d6b1" width="400" height="400" />
 
 - **Diffuse and Specular Maps**<br>
-  <img src="https://github.com/user-attachments/assets/27d92b79-3191-49ca-994f-184821097df8" width="400" height="400" />
+<img src="https://github.com/user-attachments/assets/27d92b79-3191-49ca-994f-184821097df8" width="400" height="400" />
 
 - **Maps + Light Color**<br>
-  <img src="https://github.com/user-attachments/assets/8fe6cc47-9484-46dc-82e9-7961587df2c1" width="400" height="400" />
+<img src="https://github.com/user-attachments/assets/8fe6cc47-9484-46dc-82e9-7961587df2c1" width="400" height="400" />
