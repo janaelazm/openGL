@@ -50,7 +50,7 @@ Texture::Texture(const char* image, GLenum texType, GLuint slot, GLenum format, 
 void Texture::texUnit(Shader& shader, const char* uniform, GLuint unit){
     GLuint texUni = glGetUniformLocation(shader.ID, uniform);
     shader.Activate();
-    glUniform1i(texUni, 0);
+    glUniform1i(texUni, unit);
 }
 
 void Texture::Bind(){
@@ -64,11 +64,4 @@ void Texture::Unbind(){
 
 void Texture::Delete(){
     glDeleteTextures(1, &ID);
-}
-
-void Texture::setMaterialLighting(glm::vec3 ambient, glm::vec3 specular, glm::vec3 diffuse, float shiniess){
-    Texture::ambient = ambient;
-    Texture::diffuse = diffuse;
-    Texture::specular = specular;
-    Texture::shininess = shiniess;
 }

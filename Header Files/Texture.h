@@ -12,10 +12,6 @@ class Texture{
     GLuint ID;
     GLenum type;
     GLuint unit;
-    glm::vec3 ambient = glm::vec3(1.0f, 0.5f, 0.31f);
-    glm::vec3 diffuse =  glm::vec3(1.0f, 0.5f, 0.31f);
-    glm::vec3 specular = glm::vec3(0.5f, 0.5f, 0.5f);
-    float shininess = 32.0f;
 
     //e.g image.png, GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE
     Texture(const char* image, GLenum texType, GLuint slot, GLenum format, GLenum pixelType);
@@ -26,7 +22,6 @@ class Texture{
     void Bind();
     void Unbind();
     void Delete();
-    void setMaterialLighting(glm::vec3 ambient, glm::vec3 specular, glm::vec3 diffuse, float shiniess);
 };
 
 #endif

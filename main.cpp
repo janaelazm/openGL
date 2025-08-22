@@ -17,24 +17,57 @@ const unsigned int width = 800;
 const unsigned int height = 800;
 
 // Vertices coordinates
-GLfloat vertices[] =
-{
-    // COORDINATES        // COLORS             // TexCoord  // NORMALS          // SIDE
-    -0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,  0.0f, 0.0f,  0.0f, 1.0f,  0.0f, // Bottom side
-    -0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f,  0.0f, 5.0f,  0.0f, 1.0f,  0.0f, // Bottom side
-     0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f,  5.0f, 5.0f,  0.0f, 1.0f,  0.0f, // Bottom side
-     0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,  5.0f, 0.0f,  0.0f, 1.0f,  0.0f, // Bottom side
+float vertices[] = {
+   // positions         // tex coords  // normals
+    // Back face (-Z)
+    -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,  0.0f, 0.0f, -1.0f,
+     0.5f, -0.5f, -0.5f,  1.0f, 0.0f,  0.0f, 0.0f, -1.0f,
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,  0.0f, 0.0f, -1.0f,
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,  0.0f, 0.0f, -1.0f,
+    -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,  0.0f, 0.0f, -1.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,  0.0f, 0.0f, -1.0f,
+
+    // Front face (+Z)
+    -0.5f, -0.5f, 0.5f,   0.0f, 0.0f,  0.0f, 0.0f, 1.0f,
+     0.5f, -0.5f, 0.5f,   1.0f, 0.0f,  0.0f, 0.0f, 1.0f,
+     0.5f,  0.5f, 0.5f,   1.0f, 1.0f,  0.0f, 0.0f, 1.0f,
+     0.5f,  0.5f, 0.5f,   1.0f, 1.0f,  0.0f, 0.0f, 1.0f,
+    -0.5f,  0.5f, 0.5f,   0.0f, 1.0f,  0.0f, 0.0f, 1.0f,
+    -0.5f, -0.5f, 0.5f,   0.0f, 0.0f,  0.0f, 0.0f, 1.0f,
+
+    // Left face (-X)
+    -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,  -1.0f, 0.0f, 0.0f,
+    -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,  -1.0f, 0.0f, 0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,  -1.0f, 0.0f, 0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,  -1.0f, 0.0f, 0.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,  -1.0f, 0.0f, 0.0f,
+    -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,  -1.0f, 0.0f, 0.0f,
+
+    // Right face (+X)
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,  1.0f, 0.0f, 0.0f,
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,  1.0f, 0.0f, 0.0f,
+     0.5f, -0.5f, -0.5f,  0.0f, 1.0f,  1.0f, 0.0f, 0.0f,
+     0.5f, -0.5f, -0.5f,  0.0f, 1.0f,  1.0f, 0.0f, 0.0f,
+     0.5f, -0.5f,  0.5f,  0.0f, 0.0f,  1.0f, 0.0f, 0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,  1.0f, 0.0f, 0.0f,
+
+    // Bottom face (-Y)
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,  0.0f, -1.0f, 0.0f,
+     0.5f, -0.5f, -0.5f,  1.0f, 1.0f,  0.0f, -1.0f, 0.0f,
+     0.5f, -0.5f,  0.5f,  1.0f, 0.0f,  0.0f, -1.0f, 0.0f,
+     0.5f, -0.5f,  0.5f,  1.0f, 0.0f,  0.0f, -1.0f, 0.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,  0.0f, -1.0f, 0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,  0.0f, -1.0f, 0.0f,
+
+    // Top face (+Y)
+    -0.5f, 0.5f, -0.5f,   0.0f, 1.0f,  0.0f, 1.0f, 0.0f,
+     0.5f, 0.5f, -0.5f,   1.0f, 1.0f,  0.0f, 1.0f, 0.0f,
+     0.5f, 0.5f,  0.5f,   1.0f, 0.0f,  0.0f, 1.0f, 0.0f,
+     0.5f, 0.5f,  0.5f,   1.0f, 0.0f,  0.0f, 1.0f, 0.0f,
+    -0.5f, 0.5f,  0.5f,   0.0f, 0.0f,  0.0f, 1.0f, 0.0f,
+    -0.5f, 0.5f, -0.5f,   0.0f, 1.0f,  0.0f, 1.0f, 0.0f
 };
 
-
-// Tells opengl which order of indcies to use when drawing elements
-// Vertices are reusable for multiple primitives
-// Each index is 6 floats long, so add the color values doesn't affect the order
-GLuint indices[] = {
-    // Base
-    0, 2, 1,
-    0, 3, 2
- };
 
 // Creates a cube that is a light source
  GLfloat lightVertices[] = {
@@ -108,20 +141,15 @@ int main()
 
     // Create Vertex Buffer Object and links it to vertices
     VBO VBO1(vertices, sizeof(vertices));
-    // Create Vertex Element Object and links it to indices
-    EBO EBO1(indices, sizeof(indices));
 
     // Links VAO to VBO and specifies how to read the vertices
     // Specifies that each lump of data is 6 float (3 for coordinates, 3 for color)
-    VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 11*sizeof(float),(void*)0);
-    VAO1.LinkAttrib(VBO1, 1, 3, GL_FLOAT, 11*sizeof(float),(void*)(3*sizeof(float)));
-    VAO1.LinkAttrib(VBO1, 2, 2, GL_FLOAT, 11*sizeof(float),(void*)(6*sizeof(float)));
-    VAO1.LinkAttrib(VBO1, 3, 3, GL_FLOAT, 11*sizeof(float),(void*)(8*sizeof(float)));
+    VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 8*sizeof(float),(void*)0);
+    VAO1.LinkAttrib(VBO1, 1, 2, GL_FLOAT, 8*sizeof(float),(void*)(3*sizeof(float)));
+    VAO1.LinkAttrib(VBO1, 2, 3, GL_FLOAT, 8*sizeof(float),(void*)(5*sizeof(float)));
     // Unbind all objects to avoid accidently modifying it
     VAO1.Unbind();
     VBO1.Unbind();
-    EBO1.Unbind();
-
 
     // Create a light shader from the source code
     Shader lightShader("Resources/Shaders/light.vert", "Resources/Shaders/light.frag");
@@ -145,13 +173,12 @@ int main()
     lightEBO.Unbind();
 
     // Light settings
-    glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-    glm::vec3 lightPos = glm::vec3(0.0f, 0.25f, 0.0f);
+    glm::vec4 lightColor = glm::vec4(1.0f, 0.3f, 0.8f, 1.0f);
+    glm::vec3 lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
     glm::mat4 lightModel = glm::mat4(1.0f);
     // Move the light to it's position
     lightModel = glm::translate(lightModel, lightPos);
     
-
     // 3D Model
     glm::vec3 pyramidPosition = glm::vec3(0.0f, 0.0f, 0.0f);
     glm::mat4 pyramidModel = glm::mat4(1.0f);
@@ -164,21 +191,26 @@ int main()
     glUniform4f(glGetUniformLocation(lightShader.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
     shaderProgram.Activate();
     glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(pyramidModel));
-    glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
-    glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
+    glUniform3f(glGetUniformLocation(shaderProgram.ID, "light.color"), lightColor.x, lightColor.y, lightColor.z);
+    glUniform3f(glGetUniformLocation(shaderProgram.ID, "light.position"), lightPos.x, lightPos.y, lightPos.z);
+    // Light properties
+    glUniform3f(glGetUniformLocation(shaderProgram.ID, "light.ambient"), 0.2f, 0.2f, 0.2f);
+    glUniform3f(glGetUniformLocation(shaderProgram.ID, "light.diffuse"), 0.5f, 0.5f, 0.5f);
+    glUniform3f(glGetUniformLocation(shaderProgram.ID, "light.specular"), 1.0f, 1.0f, 1.0f);
 
 
     // Texture
-    Texture texture("Resources/Texture/brick.png", GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE);
-    texture.texUnit(shaderProgram, "tex0", 0);
-
-    glUniform3f(glGetUniformLocation(shaderProgram.ID, "materialDiffuse"), texture.diffuse.x, texture.diffuse.y, texture.diffuse.z);
-    glUniform3f(glGetUniformLocation(shaderProgram.ID, "materialAmbient"), texture.ambient.x, texture.ambient.y, texture.ambient.z);
-    glUniform3f(glGetUniformLocation(shaderProgram.ID, "materialSpecular"), texture.specular.x, texture.specular.y, texture.specular.z);
+    Texture containerWood("Resources/Texture/container2.png", GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE);
+    // Set the sampler2D uniform for diffuse in shader
+    containerWood.texUnit(shaderProgram, "material.diffuse", 0);
+    Texture containerBorder("Resources/Texture/container2_specular.png", GL_TEXTURE_2D, 1, GL_RGBA, GL_UNSIGNED_BYTE);
+    // Set the sampler2D uniform for specular in shader
+    containerBorder.texUnit(shaderProgram, "material.specular", 1);
+    // Set the float uniform for shininess in shader
+    glUniform1f(glGetUniformLocation(shaderProgram.ID, "material.shininess"), 64.0f);
 
     // Camera
     Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
-
 
     // Main loop: runs until the user closes the window
     while (!glfwWindowShouldClose(window)) {
@@ -194,12 +226,12 @@ int main()
         // Updates and exports camera matrix to the vertex shader of the pyramid
         camera.Matrix(shaderProgram, "camMatrix");
         //Bind the texture so openGL knows to use it
-        texture.Bind();
-      
+        containerWood.Bind();
+        containerBorder.Bind();
         // Make the VAO the current one after we unbound it for saftey reasons
         VAO1.Bind();
         // primitives, nr of indices, datatype of indcies and index of indecies
-        glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(int), GL_UNSIGNED_INT, 0);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
         lightShader.Activate();
         // Updates and exports camera matrix to the vertex shader of light
         camera.Matrix(lightShader, "camMatrix");
@@ -216,13 +248,14 @@ int main()
     // Cleanup before closing window
     VAO1.Delete();
     VBO1.Delete();
-    EBO1.Delete();
+    //EBO1.Delete();
     lightEBO.Delete();
     lightVAO.Delete();
     lightVBO.Delete();
     shaderProgram.Delete();
     lightShader.Delete();
-    texture.Delete();
+    containerWood.Delete();
+    containerBorder.Delete();
     // Cleanup and terminate window
     glfwDestroyWindow(window);
     glfwTerminate();
